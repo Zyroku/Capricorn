@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPRI | Neural Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header class="topbar">
+
+            <div class="brand">
+                <span class="brand-mark">C</span>
+
+                <div>
+                    <h1>CAPRI</h1>
+                    <small>NEURAL COMPUTATION SYSTEM</small>
+                </div>
+            </div>
+
+        </header>
+
+        <main class="workspace">
+
+            <section class="calculator-section">
+
+                <div class="section-heading">
+                    <span>01 / CALCULATION TERMINAL</span>
+                    <span id="currentMode">STANDARD</span>
+                </div>
+
+                <div class="calculator">
+
+                    <div class="display">
+                        <small id="expression">READY FOR INPUT</small>
+                        <div id="screen">0</div>
+                    </div>
+
+                    <div id="modeWorkspace" class="mode-workspace"></div>
+
+                    <div class="keypad" id="keypad">
+
+                        <button class="function" data-value="AC">AC</button>
+                        <button class="function" data-value="(">(</button>
+                        <button class="function" data-value=")">)</button>
+                        <button class="operator" data-value="/">÷</button>
+
+                        <button data-value="7">7</button>
+                        <button data-value="8">8</button>
+                        <button data-value="9">9</button>
+                        <button class="operator" data-value="*">×</button>
+
+                        <button data-value="4">4</button>
+                        <button data-value="5">5</button>
+                        <button data-value="6">6</button>
+                        <button class="operator" data-value="-">−</button>
+
+                        <button data-value="1">1</button>
+                        <button data-value="2">2</button>
+                        <button data-value="3">3</button>
+                        <button class="operator" data-value="+">+</button>
+
+                        <button class="function" data-value="0">0</button>
+                        <button data-value=".">.</button>
+                        <button class="function" data-value="BACK">⌫</button>
+                        <button class="equals" data-value="=">=</button>
+
+                    </div>
+
+                </div>
+
+                <div class="terminal-footer">
+
+                    <div class="terminal-status">
+                        <span>INPUT CHANNEL: ACTIVE</span>
+
+                        <span class="system-status">
+                            <span class="status-dot"></span>
+                            SYSTEM ONLINE
+                        </span>
+                    </div>
+
+                    <span>CAPRI CORE V1.0</span>
+
+                </div>
+
+            </section>
+
+            <section class="system-section">
+
+                <div class="result-panel">
+
+                    <div class="panel-heading">
+                        <span>02 / CALCULATION RESULT</span>
+                        <span id="resultStatus">AWAITING</span>
+                    </div>
+
+                    <div id="result">---</div>
+
+                    <p id="resultMessage">
+                        Waiting for a calculation command.
+                    </p>
+
+                </div>
+
+                <div class="system-panel">
+
+                    <div class="panel-heading">
+                        <span>NEURAL CORE</span>
+                        <span class="cyan">● ONLINE</span>
+                    </div>
+
+                    <h2 id="coreStatus">Neural system initialized</h2>
+
+                    <p>
+                        Primary computational network standing by.
+                    </p>
+
+                    <div class="progress-track">
+                        <div class="progress-fill" id="coreProgress"></div>
+                    </div>
+
+                </div>
+
+                <div class="system-panel">
+
+                    <div class="panel-heading">
+                        <span>PROCESSING</span>
+                        <span id="processStatus" class="cyan">IDLE</span>
+                    </div>
+
+                    <h2 id="processText">Awaiting expression</h2>
+
+                    <p id="processDetails">
+                        No active calculations.
+                    </p>
+
+                </div>
+
+                <div class="personality-panel">
+
+                    <div class="panel-heading">
+                        <span>PERSONALITY MATRIX</span>
+                        <span class="pink">CAPRI AI</span>
+                    </div>
+
+                    <h2>Companion behavior system</h2>
+
+                    <p>
+                        Autonomous personality and behavior configuration.
+                    </p>
+
+                    <button id="settingsButton" class="settings-button">
+                        ⚙ CALCULATOR SETTINGS
+                        <span>→</span>
+                    </button>
+
+                    <div id="settingsMenu" class="settings-menu hidden">
+
+                        <p>SELECT CALCULATOR MODE</p>
+
+                        <button data-mode="Standard">Standard</button>
+                        <button data-mode="Scientific">Scientific</button>
+                        <button data-mode="Programmer">Programmer</button>
+                        <button data-mode="Statistics">Statistics</button>
+                        <button data-mode="Fraction">Fraction</button>
+                        <button data-mode="Equation">Equation Solver</button>
+                        <button data-mode="Graphing">Graphing</button>
+                        <button data-mode="Financial">Financial</button>
+                        <button data-mode="Converter">Unit Converter</button>
+                        <button data-mode="Date">Date Calculator</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <div id="capriCompanion" class="capri-companion">
+
+            <div id="capriChat" class="capri-chat">
+                <span id="capriMessage">Oh? You're here.</span>
+            </div>
+
+            <img
+                id="capriImage"
+                src="assets/CapriStand.png"
+                alt="Capri"
+            >
+
+        </div>
+
+        <footer class="footer">
+            CAPRI NEURAL SYSTEM <span>//</span> ALL SYSTEMS OPERATIONAL
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
