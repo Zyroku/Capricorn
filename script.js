@@ -177,27 +177,7 @@ function clearCalculator() {
     processDetails.textContent = "No active calculations.";
 }
 
-function safeArithmetic(source) {
-    const s = source.replace(/\s+/g, "");
-
-    if (!s || !/^[0-9+\-*/().%]+$/.test(s)) {
-        throw new Error("Use numbers and arithmetic operators only.");
-    }
-
-    if (/\/{2,}|\*{2,}|[+*/.]$/.test(s)) {
-        throw new Error("Incomplete expression.");
-    }
-
-    const value = Function('"use strict"; return (' + s + ')')();
-
-    if (!Number.isFinite(value)) {
-        throw new Error("Invalid mathematical result.");
-    }
-
-    return value;
-}
-
-function calculate() {
+async function calculate() {
     if (!expression.trim()) return;
 
     try {
@@ -206,7 +186,18 @@ function calculate() {
         coreStatus.textContent = "Neural core calculating";
         coreProgress.style.width = "80%";
 
-        const answer = safeArithmetic(expression);
+        const response = await fetch("/api/calculate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ expression })
+        });
+        const data = await response.json();
+
+        if (!response.ok || data.error) {
+            throw new Error(data.error || "The calculation could not be completed.");
+        }
+
+        const answer = Number(data.result);
 
         showResult(answer);
 
